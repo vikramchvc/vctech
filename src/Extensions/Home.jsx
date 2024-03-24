@@ -3,7 +3,7 @@ import "../App.css";
 import Summary from "./Summary"
 import Transscript from "./Transscript"
 import OutOfCredits from "./OutOfCredits"
-import LoginNew from "./LoginNew"
+import Login from "./Login"
 import { connect } from "react-redux";
 import ExtensionContext from "./ExtensionsState";
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -32,7 +32,7 @@ function Home(props) {
       ) : (
         <>
           <GoogleOAuthProvider clientId={ENV.googleClientId}>
-            <LoginNew />
+            <Login />
           </GoogleOAuthProvider>
         </>
       )

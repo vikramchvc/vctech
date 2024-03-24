@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import "../App.css";
 import { useGoogleLogin } from '@react-oauth/google';
 
-function LoginNew({ googleLogin }) {
+function Login({ googleLogin }) {
   const [loading, setLoading] = useState(false);
 
   const googleAUthLogin = useGoogleLogin({
@@ -58,4 +58,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { googleLogin })(LoginNew);
+export default connect(mapStateToProps, { googleLogin })(Login);
