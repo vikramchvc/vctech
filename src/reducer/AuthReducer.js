@@ -1,5 +1,7 @@
 import CONSTANTS from "../Extensions/Constants";
 import TYPE from "./Type";
+import { syncStorage } from "../Extensions/Utils";
+
 const initialState = {
     access: localStorage.getItem(CONSTANTS.TOKEN),
     isAuthenticated: false,
@@ -13,6 +15,7 @@ const AuthReducer = (state = initialState, action) => {
     switch (type) {
         case TYPE.LOGIN_SUCCESS:
             localStorage.setItem(CONSTANTS.TOKEN, payload.access);
+            syncStorage(CONSTANTS.TOKEN, payload.access);
             return {
                 ...state,
                 access: payload.access,
@@ -23,6 +26,7 @@ const AuthReducer = (state = initialState, action) => {
             }
         case TYPE.LOGIN_FAIL:
             localStorage.removeItem(CONSTANTS.TOKEN);
+            syncStorage(CONSTANTS.TOKEN, null);
             return {
                 ...state,
                 access: null,
@@ -52,6 +56,7 @@ const AuthReducer = (state = initialState, action) => {
             }
         case TYPE.REFRESH_SUCCESS:
             localStorage.setItem(CONSTANTS.TOKEN, payload.access);
+            syncStorage(CONSTANTS.TOKEN, payload.access);
             return {
                 ...state,
                 access: payload.access,
@@ -60,6 +65,7 @@ const AuthReducer = (state = initialState, action) => {
             }
         case TYPE.REFRESH_FAIL:
             localStorage.removeItem(CONSTANTS.TOKEN);
+            syncStorage(CONSTANTS.TOKEN, null);
             return {
                 ...state,
                 access: null,
@@ -119,6 +125,7 @@ const AuthReducer = (state = initialState, action) => {
             }
         case TYPE.LOGOUT:
             localStorage.removeItem(CONSTANTS.TOKEN);
+            syncStorage(CONSTANTS.TOKEN, null);
             return {
                 ...state,
                 access: null,

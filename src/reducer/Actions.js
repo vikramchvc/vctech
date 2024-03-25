@@ -31,7 +31,6 @@ export const verify = () => async dispatch => {
 };
 export const logout = () => async dispatch => {
     const config = { headers: { "Content-Type": "application/json" } };
-
     try {
         await axios.post(SERVER_URL + API.LOGOUT, config);
         dispatch({
@@ -131,7 +130,7 @@ export const summarise = async (id, link) => {
         const response = await axios.post(SERVER_URL + API.SUMMARISE, body, config);
         return response.data
     } catch (error) {
-        return JSON.stringify({ "error": "token expired" });
+        return { "error": "token expired" };
     }
 };
 

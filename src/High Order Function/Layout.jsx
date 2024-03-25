@@ -8,21 +8,25 @@ import { useContextVariable } from "../reducer/ContextProvide";
 import { useState } from "react";
 import { sendHeightToParent, getVideoId } from "../Extensions/Utils"
 import Home from "../Extensions/Home";
-import TYPE from "../reducer/Type"
 import CONSTANTS from "../Extensions/Constants";
 import { useLocation } from "react-router-dom";
+import { getStorage } from "../Extensions/Utils";
 
 const Layout = (props) => {
   const containerRef = useRef(null);
   const [route, setRoute] = useState(CONSTANTS.ROUTES.SUMMARY);
   const { ContextVariable, setContextVariable } = useContextVariable();
-  const { youtubeid, youtubeLink } = ContextVariable
+  const { youtubeid, youtubeLink} = ContextVariable
 
   let location = useLocation();
   useEffect(() => {
-    console.log("location is called");
+    if(localStorage.getItem(CONSTANTS.TOKEN)==null){
+      getStorage(CONSTANTS.TOKEN);
+    }else{
     props.verify();
     props.getUser();
+    }
+    
   }, [location]);
 
   if (youtubeid === "null" || youtubeLink === "null") {
@@ -31,15 +35,19 @@ const Layout = (props) => {
 
   const resolveContext = (type, data) => {
     switch (type) {
-      case TYPE.VIDEO_ID:
-        console.log("resolve is called");
+      case CONSTANTS.VIDEO_ID:
         setContextVariable(prevState => ({
           ...prevState,
           youtubeid: data.videoId,
           youtubeLink: data.link,
           isNewVideo: true
         }));
-        break;
+      break;
+      case CONSTANTS.GET_STORAGE:
+        localStorage.setItem(CONSTANTS.TOKEN, data.value);
+        props.verify();
+        props.getUser();
+      break;
       default:
         return "null";
     }

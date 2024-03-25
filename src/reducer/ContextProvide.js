@@ -7,7 +7,8 @@ const initialValue={
   userContent:{},
   youtubeid:"null",
   youtubeLink:"null",
-  isNewVideo:true
+  isNewVideo:true,
+  token:null,
 }
 
 const ContextProvider = ({ children }) => {

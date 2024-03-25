@@ -11,6 +11,7 @@ function Login({ googleLogin }) {
     flow: 'auth-code',
     onSuccess: (response) => {
       try {
+        setLoading(true);
         googleLogin(response.code)
       } catch (error) {
         setLoading(false);
@@ -24,13 +25,12 @@ function Login({ googleLogin }) {
   });
 
   const handleLoginClick = () => {
-    setLoading(true);
     googleAUthLogin();
   };
 
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <div className="login">
           <div className="login-btn" type="button" >
             <img src="google.png" className="google-logo" alt="Logo description" width="100" height="100"></img>
@@ -47,7 +47,15 @@ function Login({ googleLogin }) {
             Login With Google
           </div>
         </div>
-      )}
+      )} */}
+
+
+<div className="login">
+          <div className="login-btn" type="button" onClick={handleLoginClick}>
+            <img src="google.png" className="google-logo" alt="Logo description" width="100" height="100"></img>
+            Login With Google
+          </div>
+        </div>
     </>
   );
 }

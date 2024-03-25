@@ -1792,6 +1792,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
+"@paddle/paddle-js@^1.0.3":
+  "integrity" "sha512-ZV3Gy/7P1eVBLHFIX5vBv+fbe2qeaC2y8/85lRbfvzBRq+ZxY+20ujzvIEIZv7OtS51mbn2TTWtSVeAM0Cke5Q=="
+  "resolved" "https://registry.npmjs.org/@paddle/paddle-js/-/paddle-js-1.0.3.tgz"
+  "version" "1.0.3"
+
 "@pkgjs/parseargs@^0.11.0":
   "integrity" "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="
   "resolved" "https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz"

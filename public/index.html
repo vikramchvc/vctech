@@ -23,8 +23,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+
+    
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+      <script type="text/javascript">
+        Paddle.Environment.set('sandbox'); // only include if testing in sandbox
+        Paddle.Initialize({ 
+          token: 'test_54b676257ca366811cd3a890897', // replace with a client-side token
+          pwCustomer : {email: "chandranvickram@gmail.com"}
+        });
+      </script>
+    
     <div id="root"></div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

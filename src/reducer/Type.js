@@ -19,8 +19,7 @@ const TYPE = {
     SET_FAIL: "SET_FAIL",
     LOGOUT: "LOGOUT",
     CLOSE_ALERT: "CLOSE_ALERT",
-    GUEST_VIEW: "GUEST_VIEW",
-    VIDEO_ID:"video-id"
+    GUEST_VIEW: "GUEST_VIEW"
 }
 
 export default TYPE

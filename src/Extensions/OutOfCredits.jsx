@@ -4,9 +4,8 @@ import "../App.css";
 import ExtensionContext from "./ExtensionsState";
 import { payment } from "../reducer/Actions";
 import { connect } from "react-redux";
-import CONSTANTS from "./Constants";
 import { useContextVariable } from "../reducer/ContextProvide";
-
+import Payment from "./Payment";
 
 function OutOfCredits({ user }) {
     const [subscriptionType, setSubscriptionType] = useState("Annual");
@@ -18,8 +17,11 @@ function OutOfCredits({ user }) {
 
     const handleStartPlan = () => {
         // setNoCredits(false);
-        payment(CONSTANTS.PLANS.MONTHLY_PLAN, user.user)
+        // payment(CONSTANTS.PLANS.MONTHLY_PLAN, user.user)
     };
+
+    
+
 
 
     const handleClose = () => {
@@ -45,8 +47,8 @@ function OutOfCredits({ user }) {
                                 d="M11 1L1 11M1 1L11 11"
                                 stroke="black"
                                 strokeWidth="1.67"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                         </svg>
                     </div>
@@ -175,8 +177,8 @@ function OutOfCredits({ user }) {
                                                 d="M6.6 1L2.75 4.85L1 3.1"
                                                 stroke="white"
                                                 strokeWidth="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
                                             />
                                         </svg>
                                     </div>
@@ -240,8 +242,8 @@ function OutOfCredits({ user }) {
                                                 d="M6.6 1L2.75 4.85L1 3.1"
                                                 stroke="white"
                                                 strokeWidth="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
                                             />
                                         </svg>
                                     </div>
@@ -253,9 +255,10 @@ function OutOfCredits({ user }) {
             </div>
 
 
-            <div className="summarizeBtn" onClick={handleStartPlan}>
+            {/* <div className="summarizeBtn" onClick={handleStartPlan}>
                 <p className="summarizeText">Start plan</p>
-            </div>
+            </div> */}
+            <Payment/>
             <div className="paymentSatsify">
                 *No questions on refund if you're not satisfied
             </div>

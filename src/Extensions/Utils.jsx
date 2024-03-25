@@ -1,5 +1,5 @@
 import { useContextVariable } from "../reducer/ContextProvide";
- 
+import CONSTANTS from "./Constants";
 function IconUp() {
     return (
       <svg
@@ -52,6 +52,21 @@ function getVideoId() {
     }, "*");
 }
 
+function getStorage(k) {
+  window.parent.postMessage({
+    type: 'get-from-storage',
+    key:k
+  }, "*");
+}
+
+function syncStorage(k,v) {
+  window.parent.postMessage({
+    type: 'storage',
+    key:k,
+    value:v
+  }, "*");
+}
 
 
-export {IconDown,IconUp,sendHeightToParent,getVideoId}
+
+export {IconDown,IconUp,sendHeightToParent,getVideoId,syncStorage,getStorage}

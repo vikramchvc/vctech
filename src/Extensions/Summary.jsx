@@ -16,8 +16,7 @@ function Summary({ refresh }) {
     setLoading(true);
     try {
       let responseData = await summarise(youtubeid, youtubeLink);
-      const jsonObject = JSON.parse(responseData);
-      if ('error' in jsonObject) {
+      if ('error' in responseData) {
         await refresh();
         responseData = await summarise(youtubeid, youtubeLink);
       }
@@ -37,8 +36,12 @@ function Summary({ refresh }) {
 
   return (
     <>
-      {((summaryContent["summary"] === undefined) || (isNewVideo === true)) ? (
-        <>
+      {((summaryContent["summary"] !== undefined)&&(!isNewVideo) ) ? (
+        <div className="summary-container">
+          <Markdown>{summaryContent["summary"]}</Markdown>
+        </div>
+        ) : (
+          <>
           {loading ? (
             <div className="loadingSpinner">
               <p className="summarizeText">Processing</p>
@@ -55,10 +58,7 @@ function Summary({ refresh }) {
               <p className="summarizeText">Summarize this video</p>
             </div>
           )}
-        </>) : (
-        <div className="summary-container">
-          <Markdown>{summaryContent["summary"]}</Markdown>
-        </div>
+          </>
       )}
     </>
   );

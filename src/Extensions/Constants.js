@@ -11,7 +11,10 @@ const CONSTANTS = {
         TRANSCRIPT: "transscript",
         MY_PLANS: "outofCredits",
     },
-    TOKEN: "token"
+    TOKEN: "token",
+    GET_STORAGE:"get-from-storage",
+    SEND_STORAGE:"storage",
+    HEIGHT:"height",
 }
 
 export default CONSTANTS
