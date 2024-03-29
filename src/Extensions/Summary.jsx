@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Markdown from 'https://esm.sh/react-markdown@9'
 import "../App.css";
-import { refresh, verify, summarise } from "../reducer/Actions";
+import { refresh, summarise } from "../reducer/Actions";
 import { useContextVariable } from "../reducer/ContextProvide";
 import { connect } from "react-redux";
 
@@ -66,4 +66,4 @@ function Summary({ refresh }) {
 
 
 
-export default connect(null, { refresh, verify })(Summary);
+export default connect(null, { refresh})(Summary);

@@ -26,13 +26,19 @@ const Layout = (props) => {
     props.verify();
     props.getUser();
     }
-    
   }, [location]);
 
   if (youtubeid === "null" || youtubeLink === "null") {
     getVideoId();
   }
 
+
+
+
+
+
+
+  // Used for communication with the extension
   const resolveContext = (type, data) => {
     switch (type) {
       case CONSTANTS.VIDEO_ID:
@@ -52,10 +58,6 @@ const Layout = (props) => {
         return "null";
     }
   };
-
-
-
-
   useEffect(() => {
     const handleMessage = (event) => {
       const receivedMessage = event.data;
@@ -70,6 +72,9 @@ const Layout = (props) => {
 
 
 
+
+
+  // Used for height adjustment in extension
   useEffect(() => {
     const observer = new ResizeObserver(entries => {
       for (let entry of entries) {
@@ -92,7 +97,6 @@ const Layout = (props) => {
 
 
   return (
-
     <ExtensionContext.Provider value={{ route, setRoute }}>
       <div id="rootContainer" className="container" ref={containerRef}>
         <div>

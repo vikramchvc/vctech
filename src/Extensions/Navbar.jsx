@@ -14,9 +14,8 @@ import CONSTANTS from "./Constants";
 const Navbar = ({ logout, isAuthenticated, user }) => {
     const routeState = useContext(ExtensionContext);
     const { ContextVariable } = useContextVariable();
-    const { summaryContent } = ContextVariable;
-
-
+    const { summaryContent,youtubeid, youtubeLink } = ContextVariable;
+  
     const [showSummarizeOptions, setShowSummarizeOptions] = useState(false);
     const [showTransBox, setShowTransBox] = useState(false);
     const [showHamBox, setShowHamBox] = useState(false);
@@ -77,13 +76,16 @@ const Navbar = ({ logout, isAuthenticated, user }) => {
 
 
     const handleSummarizeClick = () => {
-        getVideoId();
-
+        if (youtubeid === "null" || youtubeLink === "null") {
+            getVideoId();
+        }
         setIsSummarizeActive(true);
         routeState.setRoute(CONSTANTS.ROUTES.SUMMARY)
     };
     const handleTranscriptClick = () => {
-        getVideoId();
+        if (youtubeid === "null" || youtubeLink === "null") {
+            getVideoId();
+        }
         setIsSummarizeActive(false);
         setShowSummarizeOptions(false);
         setShowTransBox(!showTransBox);
