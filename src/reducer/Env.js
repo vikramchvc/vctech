@@ -13,6 +13,6 @@ const serverReplitEnvironment = {
 
 
 
-const ENV = serverReplitEnvironment;
+const ENV = devEnvironment;
 export default ENV;
 

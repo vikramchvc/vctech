@@ -253,15 +253,8 @@ function OutOfCredits({ user }) {
                     </div>
                 </div>
             </div>
-
-
-            {/* <div className="summarizeBtn" onClick={handleStartPlan}>
-                <p className="summarizeText">Start plan</p>
-            </div> */}
             <Payment/>
-            <div className="paymentSatsify">
-                *No questions on refund if you're not satisfied
-            </div>
+            
 
         </div>
     );

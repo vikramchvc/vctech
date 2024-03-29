@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 class Payment extends Component {
+    
     componentDidMount() {
         if (!window.Paddle) {
             const script = document.createElement('script');
@@ -17,6 +18,7 @@ class Payment extends Component {
     }
 
     handleCheckout = () => {
+        const { user } = this.props;
         var itemsList = [
             {
               priceId: 'pri_01hsbw1mp4j38h3ek2ksp85eme',
@@ -29,23 +31,10 @@ class Payment extends Component {
               displayMode: "overlay",
               theme: "light",
               locale: "en",
-              //successurl :
-
             },
             items: itemsList,
-            customer_name: "Vickram cahnd",
             customer : {
-                email: "chanuvickram@gmail.com",
-                    address: {
-                    countryCode: "US",
-                    postalCode: "10021",
-                    region: "New York",
-                    city: "New York",
-                    firstLine: "4050 Jefferson Plaza, 41st Floor"
-                    },
-            },
-            customData : {
-                mail : "vikram20@gmail.com"
+                email: user.user
             }
             
           });
@@ -53,9 +42,14 @@ class Payment extends Component {
 
     render() {
         return (
+            <>
             <div className="summarizeBtn" onClick={this.handleCheckout}>
             <p className="summarizeText">Start plan</p>
             </div>
+            <div className="paymentSatsify">
+            *No questions on refund if you're not satisfied
+        </div>
+        </>
         );
     }
 }
