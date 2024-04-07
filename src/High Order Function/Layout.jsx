@@ -2,9 +2,8 @@ import React, { useRef } from "react";
 import Navbar from "../Extensions/Navbar";
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import { verify, getUser, googleLogin } from "../reducer/Actions";
+import { verify, getUser, googleLogin, setNewVideo } from "../reducer/Actions";
 import ExtensionContext from "../Extensions/ExtensionsState";
-import { useContextVariable } from "../reducer/ContextProvide";
 import { useState } from "react";
 import { sendHeightToParent, getVideoId } from "../Extensions/Utils"
 import Home from "../Extensions/Home";
@@ -12,11 +11,12 @@ import CONSTANTS from "../Extensions/Constants";
 import { useLocation } from "react-router-dom";
 import { getStorage } from "../Extensions/Utils";
 
+
+
 const Layout = (props) => {
   const containerRef = useRef(null);
   const [route, setRoute] = useState(CONSTANTS.ROUTES.SUMMARY);
-  const { ContextVariable, setContextVariable } = useContextVariable();
-  const { youtubeid, youtubeLink} = ContextVariable
+   
 
   let location = useLocation();
   useEffect(() => {
@@ -28,7 +28,8 @@ const Layout = (props) => {
     }
   }, [location]);
 
-  if (youtubeid === "null" || youtubeLink === "null") {
+  if (props.youtubeid === "null" || props.youtubeLink === "null") {
+
     getVideoId();
   }
 
@@ -42,12 +43,7 @@ const Layout = (props) => {
   const resolveContext = (type, data) => {
     switch (type) {
       case CONSTANTS.VIDEO_ID:
-        setContextVariable(prevState => ({
-          ...prevState,
-          youtubeid: data.videoId,
-          youtubeLink: data.link,
-          isNewVideo: true
-        }));
+        props.setNewVideo(data.videoId,data.link)
       break;
       case CONSTANTS.GET_STORAGE:
         localStorage.setItem(CONSTANTS.TOKEN, data.value);
@@ -117,8 +113,15 @@ const mapStateToProps = (state) => {
     refresh: state.AuthReducer.refresh,
     isAuthenticated: state.AuthReducer.isAuthenticated,
     user: state.AuthReducer.user,
-    content: state.AuthReducer.content
+    content: state.AuthReducer.content,
+
+    summaryContent:state.ClientReducer.summaryContent,
+    credits:state.ClientReducer.credits,
+    isNewVideo:state.ClientReducer.isNewVideo,
+    youtubeid:state.ClientReducer.youtubeid,
+    youtubeLink:state.ClientReducer.youtubeLink,
+    
   }
 }
 
-export default connect(mapStateToProps, { verify, getUser, googleLogin })(Layout);
+export default connect(mapStateToProps, { verify, getUser, googleLogin, setNewVideo })(Layout);

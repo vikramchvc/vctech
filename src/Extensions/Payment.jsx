@@ -12,21 +12,22 @@ class Payment extends Component {
             document.body.appendChild(script);
             
             script.onload = () => {
-                Paddle.Setup({ vendor: 18450 });
+                Paddle.Setup({ vendor: 18450 }); // vendor id
             };
         }
     }
 
     handleCheckout = () => {
         const { user } = this.props;
+        console.log(user)
         var itemsList = [
             {
-              priceId: 'pri_01hsbw1mp4j38h3ek2ksp85eme',
+              priceId: 'pri_01htsnx0e1rmr833bp817jk0wx', // free plan id
               quantity: 1
             }
           ];
         Paddle.Checkout.open({
-            product_id : "pro_01hsbvx9r9cxt5tq358scddj79",
+            product_id : "pro_01htsjz2wakw48mp5g2r9449y7",
             settings: {
               displayMode: "overlay",
               theme: "light",

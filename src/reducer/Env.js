@@ -2,17 +2,23 @@ const devEnvironment = {
   name: 'development',
   frontendUrl: 'http://localhost:3000/',
   backendUrl: 'http://localhost:8000/',
-  googleClientId: '1074227815727-ppqu41nt51n3a4ijvd41icobjpiv0mbq.apps.googleusercontent.com',
+  googleClientId: '1031937260935-64m50n53gjk1tf1klrk269dbj8ls43lo.apps.googleusercontent.com',
 };
 const serverReplitEnvironment = {
   name: 'development',
   frontendUrl: 'http://localhost:3000/',
-  backendUrl: 'https://9e839151-a5fc-474c-994c-c3de4d5c51db-00-31ic7kjole50t.pike.replit.dev/',
-  googleClientId: '1074227815727-ppqu41nt51n3a4ijvd41icobjpiv0mbq.apps.googleusercontent.com',
+  backendUrl: 'https://c7ed7b1c-cd16-4db2-8f88-e2e6189dbbb6-00-c32oe06kznti.sisko.replit.dev/',
+  googleClientId: '1031937260935-64m50n53gjk1tf1klrk269dbj8ls43lo.apps.googleusercontent.com',
+};
+
+const liveReplitEnvironment = {
+  name: 'development',
+  frontendUrl: 'http://localhost:3000/',
+  backendUrl: 'https://backend-quicksense.replit.app/',
+  googleClientId: '1031937260935-64m50n53gjk1tf1klrk269dbj8ls43lo.apps.googleusercontent.com',
 };
 
 
-
-const ENV = devEnvironment;
+const ENV = serverReplitEnvironment;
 export default ENV;
 

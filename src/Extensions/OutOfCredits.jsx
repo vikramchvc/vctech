@@ -6,6 +6,8 @@ import { payment } from "../reducer/Actions";
 import { connect } from "react-redux";
 import { useContextVariable } from "../reducer/ContextProvide";
 import Payment from "./Payment";
+import CONSTANTS from "./Constants";
+
 
 function OutOfCredits({ user }) {
     const [subscriptionType, setSubscriptionType] = useState("Annual");
@@ -25,7 +27,7 @@ function OutOfCredits({ user }) {
 
 
     const handleClose = () => {
-        routeState.setRoute("home")
+        routeState.setRoute(CONSTANTS.ROUTES.SUMMARY)
     };
 
 
@@ -83,7 +85,7 @@ function OutOfCredits({ user }) {
                                 viewBox="0 0 14 14"
                                 fill="none"
                             >
-                                <g clip-path="url(#clip0_14_168)">
+                                <g clipPath="url(#clip0_14_168)">
                                     <path
                                         d="M13.999 10.4611C13.999 10.5377 13.9966 10.704 13.992 10.8324C13.9808 11.1466 13.9559 11.5521 13.9182 11.7368C13.8616 12.0144 13.7761 12.2765 13.6647 12.4946C13.5328 12.7526 13.3647 12.9837 13.1649 13.1831C12.9655 13.3822 12.7346 13.5497 12.477 13.681C12.2577 13.7927 11.994 13.8782 11.7148 13.9346C11.5319 13.9715 11.1295 13.996 10.8173 14.0071C10.6888 14.0117 10.5225 14.014 10.4461 14.014L3.55239 14.0129C3.47574 14.0129 3.30951 14.0105 3.18109 14.0059C2.86687 13.9946 2.46142 13.9697 2.27667 13.9321C1.99905 13.8755 1.737 13.79 1.51891 13.6786C1.26089 13.5467 1.0298 13.3786 0.830338 13.1787C0.631275 12.9793 0.463768 12.7485 0.332477 12.4908C0.220723 12.2716 0.135219 12.0079 0.0788496 11.7287C0.0419355 11.5458 0.0175039 11.1434 0.00638867 10.8312C0.00182227 10.7026 -0.000488281 10.5364 -0.000488281 10.46L0.000605469 3.56627C0.000605469 3.48961 0.00294336 3.32338 0.00755078 3.19496C0.0188301 2.88074 0.0437266 2.47528 0.0813926 2.29055C0.138008 2.01293 0.223457 1.75088 0.334896 1.53277C0.466734 1.27477 0.634912 1.04366 0.834727 0.8442C1.03412 0.645152 1.26501 0.47763 1.52263 0.346325C1.74188 0.234599 2.00557 0.149095 2.28477 0.0927259C2.46765 0.0557982 2.87009 0.0313665 3.1823 0.020265C3.31084 0.0156849 3.47713 0.0133743 3.55347 0.0133743L10.4472 0.0144818C10.5239 0.0144818 10.6901 0.0168196 10.8185 0.0214271C11.1327 0.0327064 11.5382 0.0576028 11.7229 0.0952689C12.0005 0.151884 12.2626 0.237333 12.4807 0.348773C12.7387 0.480611 12.9698 0.648788 13.1693 0.848603C13.3683 1.04799 13.5358 1.27887 13.6671 1.5365C13.7789 1.75576 13.8644 2.01943 13.9207 2.29863C13.9577 2.48153 13.9821 2.88395 13.9932 3.19617C13.9978 3.32472 14.0001 3.49099 14.0001 3.56736L13.999 10.4611Z"
                                         fill="url(#paint0_linear_14_168)"
@@ -102,8 +104,8 @@ function OutOfCredits({ user }) {
                                         y2="14.014"
                                         gradientUnits="userSpaceOnUse"
                                     >
-                                        <stop stop-color="#61FD7D" />
-                                        <stop offset="1" stop-color="#2BB826" />
+                                        <stop stopColor="#61FD7D" />
+                                        <stop offset="1" stopColor="#2BB826" />
                                     </linearGradient>
                                     <clipPath id="clip0_14_168">
                                         <rect width="14" height="14" fill="white" />
@@ -160,8 +162,8 @@ function OutOfCredits({ user }) {
                                                     y2="13"
                                                     gradientUnits="userSpaceOnUse"
                                                 >
-                                                    <stop stop-color="#885DF1" />
-                                                    <stop offset="1" stop-color="#6610F2" />
+                                                    <stop stopColor="#885DF1" />
+                                                    <stop offset="1" stopColor="#6610F2" />
                                                 </linearGradient>
                                             </defs>
                                         </svg>
@@ -225,8 +227,8 @@ function OutOfCredits({ user }) {
                                                     y2="13"
                                                     gradientUnits="userSpaceOnUse"
                                                 >
-                                                    <stop stop-color="#885DF1" />
-                                                    <stop offset="1" stop-color="#6610F2" />
+                                                    <stop stopColor="#885DF1" />
+                                                    <stop offset="1" stopColor="#6610F2" />
                                                 </linearGradient>
                                             </defs>
                                         </svg>
